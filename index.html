@@ -7,8 +7,12 @@
   <script>
   var code = '';
   function enterCode() {
-    code = document.getElementById('code').value;
-    console.log(code);
+    if (code.length > 0) {
+      alert('You already entered a code!');
+    }
+    var textfield = document.getElementById('code');
+    code = textfield.value;
+    textfield.value = '';
   }
   </script>
 
