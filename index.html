@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8"/>
 </head>
 <body>
+  <script>
+  var code = '';
+  function enterCode() {
+    code = document.getElementById('code').value;
+    console.log(code);
+  }
+  </script>
+
+  <div id="game">
+    <div id="codeentry">
+      <form action="javascript:enterCode()">
+        Enter the secret code:
+        <input id="code" type="text"></input>
+        <input type="submit" value="Submit">
+      </form>
+    </code>
+  </div>
 </body>
 </html>
