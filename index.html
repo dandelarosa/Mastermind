@@ -17,12 +17,37 @@
   function guessCode() {
     var textfield = document.getElementById('guess');
     var guess = textfield.value;
-    processGuess(code, guess);
+    var result = processGuess(code, guess);
+    // FIXME: DEBUG ONLY!!
+    console.log(result);
   }
   function processGuess(code, guess) {
+    var codeLength = code.length;
+    var blackPegsAwarded = [];
+    for (var i = 0; i < codeLength; i++) {
+      blackPegsAwarded.push(false);
+    }
+    var whitePegsAwarded = [];
+    for (var i = 0; i < codeLength; i++) {
+      whitePegsAwarded.push(false);
+    }
+
     // TODO: implement
-    console.log(code);
-    console.log(guess);
+
+    var numBlackPegs = 0;
+    for (var i = 0; i < blackPegsAwarded.length; i++) {
+      if (blackPegsAwarded[i]) numBlackPegs++;
+    }
+    var numWhitePegs = 0;
+    for (var i = 0; i < whitePegsAwarded.length; i++) {
+      if (whitePegsAwarded[i]) numWhitePegs++;
+    }
+
+    return {
+      guess: guess,
+      numBlackPegs: numBlackPegs,
+      numWhitePegs: numWhitePegs,
+    }
   }
   </script>
 
