@@ -14,6 +14,16 @@
     code = textfield.value;
     textfield.value = '';
   }
+  function guessCode() {
+    var textfield = document.getElementById('guess');
+    var guess = textfield.value;
+    processGuess(code, guess);
+  }
+  function processGuess(code, guess) {
+    // TODO: implement
+    console.log(code);
+    console.log(guess);
+  }
   </script>
 
   <div id="game">
@@ -23,7 +33,14 @@
         <input id="code" type="text"></input>
         <input type="submit" value="Submit">
       </form>
-    </code>
+    </div>
+    <div id="guessEntry">
+      <form action="javascript:guessCode()">
+        Break the code!:
+        <input id="guess" type="text"></input>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
   </div>
 </body>
 </html>
