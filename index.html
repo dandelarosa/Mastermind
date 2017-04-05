@@ -32,7 +32,22 @@
       whitePegsAwarded.push(false);
     }
 
-    // TODO: implement
+    for (var i = 0; i < guess.length; i++) {
+      var currentGuessChar = guess.charAt(i);
+      var codeCharAtExactPosition = code.charAt(i);
+      if (currentGuessChar === codeCharAtExactPosition) {
+        blackPegsAwarded[i] = true;
+      }
+      else {
+        for (var j = 0; j < codeLength; j++) {
+          var currentCodeChar = code.charAt(j);
+          if (currentGuessChar === currentCodeChar && !blackPegsAwarded[j] && !whitePegsAwarded[j]) {
+            whitePegsAwarded[j] = true;
+            break;
+          }
+        }
+      }
+    }
 
     var numBlackPegs = 0;
     for (var i = 0; i < blackPegsAwarded.length; i++) {
