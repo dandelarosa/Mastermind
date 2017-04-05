@@ -5,7 +5,15 @@
 </head>
 <body>
   <script>
+  const GAME_RESULT = {
+    LOST: -1,
+    PENDING: 0,
+    WON: 1,
+  };
+  var gameStatus = GAME_RESULT.PENDING;
   var code = '';
+  var guesses = [];
+  var maxTurns = 10;
   function enterCode() {
     if (code.length > 0) {
       alert('You already entered a code!');
@@ -20,6 +28,15 @@
     var result = processGuess(code, guess);
     // FIXME: DEBUG ONLY!!
     console.log(result);
+    guesses.push(result);
+    if (result.numBlackPegs === code.length) {
+      gameStatus = GAME_RESULT.WON;
+      alert('You Won!');
+    }
+    else if (guesses.length >= maxTurns) {
+      gameStatus = GAME_RESULT.LOST;
+      alert('You Lost!');
+    }
   }
   function processGuess(code, guess) {
     var codeLength = code.length;
