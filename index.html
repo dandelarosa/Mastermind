@@ -17,12 +17,26 @@
   function enterCode() {
     if (code.length > 0) {
       alert('You already entered a code!');
+      return;
     }
     var textfield = document.getElementById('code');
     code = textfield.value;
     textfield.value = '';
   }
   function guessCode() {
+    if (code.length === 0) {
+      alert('There\'s no code yet!');
+      return;
+    }
+    else if (gameStatus === GAME_RESULT.WON) {
+      alert('You already won!');
+      return;
+    }
+    else if (gameStatus === GAME_RESULT.LOST) {
+      alert('You already lost!');
+      return;
+    }
+
     var textfield = document.getElementById('guess');
     var guess = textfield.value;
     var result = processGuess(code, guess);
